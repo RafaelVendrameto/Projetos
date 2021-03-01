@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Rafael Correa">
+        <meta name="keywords" content="contratos, clientes, omni">
+        <meta name="description" content="Pagina de consulta de clientes">
+        <title>Omni</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    </head>
+    <body class="bg-cinza-claro-omni fonte-montserrat">
+        <header th:replace="~{common/navbar :: navbar}"></header>
+
+        <article class="container">
+            <section class="my-3">
+                <table class="table">
+                    <thead class="thead-cinza-omni">
+                    <tr>
+                        <th scope="col">Nome do projeto</th>
+                        <th scope="col">Data de solicitação</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col text-center">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="projeto : ${projetos}">
+                    <tr>
+                        <td th:text="${projeto.nomeProjeto}">Nome do Projeto</td>
+                        <td th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}">Data de solicitação</td>
+                        <td th:text="${projeto.departamento.name()}">Departamento</td>
+                        <td>
+                            <button type="button" class="btn btn-azul-omni btn-sm">Detalhes</button>
+                            <button type="button" class="btn btn-laranja-escuro-omni btn-sm">Alterar</button>
+                            <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
