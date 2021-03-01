@@ -1,0 +1,22 @@
+<header th:fragment="navbar" class="container-fluid bg-cinza-omni">
+    <div class="row d-flex justify-content-center">
+        <a th:href="@{/}">
+            <img src="./img/logo-omni.png" width="120" class="m-3" alt="" loading="lazy">
+        </a>
+    </div>
+    <nav class="row navbar navbar-light">
+        <ul class="nav font-weight-bold">
+            <li class="nav-item">
+                <a class="nav-link text-azul-omni" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-azul-omni" th:href="@{/projetos/cadastrar}">Cadastrar</a>
+            </li>
+        </ul>
+
+        <form class="d-flex">
+            <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-laranja-claro-omni" type="submit">Search</button>
+        </form>
+    </nav>
+</header>
