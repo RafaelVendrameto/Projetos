@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.fonte-montserrat{font-family: 'Montserrat', sans-serif;}
+
+.fs-1{font-size: 1em;}
+
+.fs-2{font-size: 2em;}
+
+$theme-colors: (
+	"azul-omni"				: #253573,
+	"cinza-omni"			: #E9E9E9,
+	"cinza-claro-omni"		: #F2F2F2,
+	"laranja-escuro-omni"	: #DD5F13,
+	"laranja-claro-omni"	: #F27B13
+);
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
