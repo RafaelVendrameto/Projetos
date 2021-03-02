@@ -2,14 +2,13 @@ package com.omni.projetosomni.dto;
 
 import com.omni.projetosomni.model.Departamento;
 import com.omni.projetosomni.model.Projeto;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class ProjetoDTO {
-    @NotBlank @NotNull @Length(max = 25)
+    @NotBlank @NotNull
     private String nomeProjeto;
     private String departamento;
     private String regulatorio;

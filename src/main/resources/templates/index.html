@@ -29,8 +29,8 @@
                         <td th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}">Data de solicitação</td>
                         <td th:text="${projeto.departamento.name()}">Departamento</td>
                         <td>
-                            <a th:href="@{'/projeto' + ${projeto.id}}" type="button" class="btn btn-azul-omni btn-sm">Detalhes</a>
-                            <a type="button" class="btn btn-laranja-escuro-omni btn-sm">Alterar</a>
+                            <a th:href="@{'/projeto' + ${projeto.id}}" class="btn btn-azul-omni btn-sm">Detalhes</a>
+                            <a th:href="@{'/alterar' + ${projeto.id}}" class="btn btn-laranja-escuro-omni btn-sm">Alterar</a>
                             <a th:href="@{'/' + ${projeto.id}}" class="btn btn-danger btn-sm">Excluir</a>
                         </td>
                     </tr>

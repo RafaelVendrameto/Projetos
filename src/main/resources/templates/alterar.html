@@ -14,38 +14,43 @@
 
         <article class="container">
             <section class="my-3">
-                <form class="row" th:object="${projetoDTO}" action="/novoProjeto" method="post">
+                <form class="row" th:object="${projetoDTO}" th:action="@{/alterarProjeto/{id}(id=${projeto.id})}" method="post">
                     <div class="col-md-12">
                         <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
+                        <p class="m-0">Texto anterior: "<small class="fs-1" th:text="${projeto.nomeProjeto}"></small>"</p>
                         <input type="text" th:field="*{nomeProjeto}" name="nomeProjeto" th:errorClass="is-invalid" class="form-control mb-2" id="inputNomeProjeto">
                         <small class="invalid-feedback" th:errors="*{nomeProjeto}">mensagem de erro</small>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDepartamento" class="form-label text-azul-omni">Departamento</label>
                         <select id="inputDepartamento" th:field="*{departamento}" name="departamento" class="form-select col mb-2">
-                            <option value="DEPARTAMENTO_01">DEPARTAMENTO_01</option>
-                            <option value="DEPARTAMENTO_02">DEPARTAMENTO_02</option>
-                            <option value="DEPARTAMENTO_03">DEPARTAMENTO_03</option>
+                            <option th:value="${projeto.departamento.name()}"><small th:text="${projeto.departamento.name()}"></small></option>
+                            <option th:classappend="${projeto.departamento.name()} == 'DEPARTAMENTO_01' ? 'd-none'" value="DEPARTAMENTO_01">DEPARTAMENTO_01</option>
+                            <option th:classappend="${projeto.departamento.name()} == 'DEPARTAMENTO_02' ? 'd-none'" value="DEPARTAMENTO_02">DEPARTAMENTO_02</option>
+                            <option th:classappend="${projeto.departamento.name()} == 'DEPARTAMENTO_03' ? 'd-none'" value="DEPARTAMENTO_03">DEPARTAMENTO_03</option>
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="inputRegulatorio" class="form-label text-azul-omni">Regulatório</label>
                         <select id="inputRegulatorio" th:field="*{regulatorio}" name="regulatorio" class="form-select col mb-2">
-                            <option value="true">SIM</option>
-                            <option value="false">NÃO</option>
+                            <option th:value="${projeto.regulatorio}"><small th:text="${projeto.regulatorio} ? 'SIM' : 'NÃO'" ></small></option>
+                            <option th:value="${!projeto.regulatorio}"><small th:text="${!projeto.regulatorio} ? 'SIM' : 'NÃO'" ></small></option>
                         </select>
                     </div>
                     <div class="col-md-12">
                         <label for="inputAnaliseSituacaoAtual" class="form-label text-azul-omni">Análise da Situação Atual</label>
-                        <textarea name="analiseSituacaoAtual" th:field="*{analiseSituacaoAtual}" class="form-control mb-2" id="inputAnaliseSituacaoAtual" rows="3"></textarea>
+                        <p class="m-0">Texto anterior: "<small class="fs-1" th:text="${projeto.analiseSituacaoAtual}"></small>"</p>
+                        <textarea th:field="*{analiseSituacaoAtual}" name="analiseSituacaoAtual" class="form-control mb-2" id="inputAnaliseSituacaoAtual" rows="3"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label for="inputDescricaoSituacaoDesejada" class="form-label text-azul-omni">Descrição Situação Desejada</label>
-                        <textarea name="descricaoSituacaoDesejada" th:field="*{descricaoSituacaoDesejada}" class="form-control mb-2" id="inputDescricaoSituacaoDesejada" rows="3"></textarea>
+                        <p class="m-0">Texto anterior: "<small class="fs-1" th:text="${projeto.descricaoSituacaoDesejada}"></small>"</p>
+                        <textarea th:field="*{descricaoSituacaoDesejada}" name="descricaoSituacaoDesejada" class="form-control mb-2" id="inputDescricaoSituacaoDesejada" rows="3"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label for="inputDescricaoSolucao" class="form-label text-azul-omni">Descrição da Solução</label>
-                        <textarea name="descricaoSolucao" th:field="*{descricaoSolucao}" class="form-control mb-2" id="inputDescricaoSolucao" rows="3"></textarea>
+                        <p class="m-0">Texto anterior: "<small class="fs-1" th:text="${projeto.descricaoSolucao}"></small>"</p>
+                        <textarea th:field="*{descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3"></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
                         <button type="submit" class="btn btn-laranja-escuro-omni">Cadastrar</button>

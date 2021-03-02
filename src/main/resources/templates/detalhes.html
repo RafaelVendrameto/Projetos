@@ -44,7 +44,7 @@
                         <textarea th:text="${projeto.descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3" disabled></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
-                        <a type="button" class="btn btn-laranja-escuro-omni btn-sm">Alterar</a>
+                        <a th:href="@{'/alterar' + ${projeto.id}}" class="btn btn-laranja-escuro-omni btn-sm">Alterar</a>
                     </div>
                 </div>
             </section>

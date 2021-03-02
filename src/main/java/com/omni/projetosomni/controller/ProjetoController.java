@@ -48,6 +48,23 @@ public class ProjetoController {
         return "redirect:/";
     }
 
+    @GetMapping("/alterar{id}")
+    public String alterar(@PathVariable("id") Integer id, Model model, ProjetoDTO projetoDTO){
+        Projeto projeto = projetoService.detalharProjeto(id);
+        model.addAttribute("projeto", projeto);
+        return "alterar";
+    }
+
+    @PostMapping("/alterarProjeto/{id}")
+    public String alterarProjeto(@PathVariable("id") Integer id, @Valid ProjetoDTO projetoDTO,
+                                 Model model, BindingResult result) {
+        if (result.hasErrors()){
+            return "alterar";
+        }
+        projetoService.alterarProjeto(projetoDTO, id);
+        return "redirect:/";
+    }
+
     @GetMapping("/{id}")
     public String excluir(@PathVariable("id") Integer id){
         projetoService.deletarProjeto(id);

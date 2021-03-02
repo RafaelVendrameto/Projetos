@@ -37,4 +37,10 @@ public class ProjetoService {
         }
         return null;
     }
+
+    public void alterarProjeto(ProjetoDTO projetoDTO, Integer id) {
+        Projeto projeto = projetoDTO.toProjeto();
+        projeto.setId(id);
+        projetoRepository.save(projeto);
+    }
 }
