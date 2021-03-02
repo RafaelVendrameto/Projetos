@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Rafael Correa">
+        <meta name="keywords" content="contratos, clientes, omni">
+        <meta name="description" content="Pagina de consulta de clientes">
+        <title>Omni</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    </head>
+    <body class="bg-cinza-claro-omni fonte-montserrat">
+        <header th:replace="~{common/navbar :: navbar}"></header>
+
+        <article class="container">
+            <section class="my-3">
+                <form class="row" th:object="${projetoDTO}" action="/novoProjeto" method="post">
+                    <div class="col-md-12">
+                        <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
+                        <input type="text" th:field="*{nomeProjeto}" name="nomeProjeto" class="form-control mb-2 border-azul-omni" id="inputNomeProjeto">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDepartamento" class="form-label text-azul-omni">Departamento</label>
+                        <select id="inputDepartamento" th:field="*{departamento}" name="departamento" class="form-select col mb-2 border-azul-omni">
+                            <option value="null" selected></option>
+                            <option value="DEPARTAMENTO_01">Departamento 1</option>
+                            <option value="DEPARTAMENTO_02">Departamento 2</option>
+                            <option value="DEPARTAMENTO_03">Departamento 3</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputRegulatorio" class="form-label text-azul-omni">Regulatório</label>
+                        <select id="inputRegulatorio" th:field="*{regulatorio}" name="regulatorio" class="form-select col mb-2 border-azul-omni">
+                            <option value="null" selected></option>
+                            <option value="true">SIM</option>
+                            <option value="false">NÃO</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputAnaliseSituacaoAtual" class="form-label text-azul-omni">Análise da Situação Atual</label>
+                        <textarea name="analisaSituacaoAtual" th:field="*{analisaSituacaoAtual}" class="form-control mb-2 border-azul-omni" id="inputAnaliseSituacaoAtual" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputDescricaoSituacaoDesejada" class="form-label text-azul-omni">Descrição Situação Desejada</label>
+                        <textarea name="descricaoSituacaoDesejada" th:field="*{descricaoSituacaoDesejada}" class="form-control mb-2 border-azul-omni" id="inputDescricaoSituacaoDesejada" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputDescricaoSolucao" class="form-label text-azul-omni">Descrição da Solução</label>
+                        <textarea name="descricaoSolucao" th:field="*{descricaoSolucao}" class="form-control mb-2 border-azul-omni" id="inputDescricaoSolucao" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-center my-3">
+                        <button type="submit" class="btn btn-laranja-escuro-omni">Cadastrar</button>
+                    </div>
+                </form>
+            </section>
+        </article>
+
+        <footer th:replace="~{common/footer :: footer}"></footer>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
