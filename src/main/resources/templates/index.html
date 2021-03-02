@@ -31,7 +31,7 @@
                         <td>
                             <button type="button" class="btn btn-azul-omni btn-sm">Detalhes</button>
                             <button type="button" class="btn btn-laranja-escuro-omni btn-sm">Alterar</button>
-                            <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                            <a th:href="@{'/' + ${projeto.id}}" class="btn btn-danger btn-sm">Excluir</a>
                         </td>
                     </tr>
                     </tbody>
