@@ -2,14 +2,18 @@ package com.omni.projetosomni.dto;
 
 import com.omni.projetosomni.model.Departamento;
 import com.omni.projetosomni.model.Projeto;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class ProjetoDTO {
+    @NotBlank @NotNull @Length(max = 25)
     private String nomeProjeto;
     private String departamento;
     private String regulatorio;
-    private String analisaSituacaoAtual;
+    private String analiseSituacaoAtual;
     private String descricaoSituacaoDesejada;
     private String descricaoSolucao;
 
@@ -37,12 +41,12 @@ public class ProjetoDTO {
         this.regulatorio = regulatorio;
     }
 
-    public String getAnalisaSituacaoAtual() {
-        return analisaSituacaoAtual;
+    public String getAnaliseSituacaoAtual() {
+        return analiseSituacaoAtual;
     }
 
-    public void setAnalisaSituacaoAtual(String analisaSituacaoAtual) {
-        this.analisaSituacaoAtual = analisaSituacaoAtual;
+    public void setAnaliseSituacaoAtual(String analiseSituacaoAtual) {
+        this.analiseSituacaoAtual = analiseSituacaoAtual;
     }
 
     public String getDescricaoSituacaoDesejada() {
@@ -66,8 +70,9 @@ public class ProjetoDTO {
         projeto.setNomeProjeto(nomeProjeto);
         projeto.setDataSolicitacao(LocalDate.now());
         projeto.setDepartamento(Departamento.valueOf(departamento));
+        projeto.setRegulatorio(Boolean.valueOf(regulatorio));
         projeto.setDescricaoSolucao(descricaoSolucao);
-        projeto.setAnalisaSituacaoAtual(analisaSituacaoAtual);
+        projeto.setAnaliseSituacaoAtual(analiseSituacaoAtual);
         projeto.setDescricaoSituacaoDesejada(descricaoSituacaoDesejada);
         projeto.setDescricaoSolucao(descricaoSolucao);
         return projeto;

@@ -13,7 +13,7 @@ public class Projeto {
     @Enumerated(EnumType.STRING)
     private Departamento departamento;
     private Boolean regulatorio;
-    private String analisaSituacaoAtual;
+    private String analiseSituacaoAtual;
     private String descricaoSituacaoDesejada;
     private String descricaoSolucao;
 
@@ -57,12 +57,12 @@ public class Projeto {
         this.regulatorio = regulatorio;
     }
 
-    public String getAnalisaSituacaoAtual() {
-        return analisaSituacaoAtual;
+    public String getAnaliseSituacaoAtual() {
+        return analiseSituacaoAtual;
     }
 
-    public void setAnalisaSituacaoAtual(String analisaSituacaoAtual) {
-        this.analisaSituacaoAtual = analisaSituacaoAtual;
+    public void setAnaliseSituacaoAtual(String analiseSituacaoAtual) {
+        this.analiseSituacaoAtual = analiseSituacaoAtual;
     }
 
     public String getDescricaoSituacaoDesejada() {
