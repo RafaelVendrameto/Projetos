@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Rafael Correa">
+        <meta name="keywords" content="contratos, clientes, omni">
+        <meta name="description" content="Pagina de consulta de clientes">
+        <title>Omni</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    </head>
+    <body class="bg-cinza-claro-omni fonte-montserrat">
+        <header th:replace="~{common/navbar :: navbar}"></header>
+
+        <article class="container">
+            <section class="my-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
+                        <input th:value="${projeto.nomeProjeto}" type="text" name="nomeProjeto" class="form-control mb-2" id="inputNomeProjeto" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputDepartamento" class="form-label text-azul-omni">Departamento</label>
+                        <select id="inputDepartamento" name="departamento" class="form-select col mb-2" disabled>
+                            <option value=""><small th:text="${projeto.departamento.name()}"></small></option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputRegulatorio" class="form-label text-azul-omni">Regulatório</label>
+                        <select id="inputRegulatorio" name="regulatorio" class="form-select col mb-2" disabled>
+                            <option><small th:text="${projeto.regulatorio} ? 'SIM' : 'NÃO'" ></small></option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputAnaliseSituacaoAtual" class="form-label text-azul-omni">Análise da Situação Atual</label>
+                        <textarea th:text="${projeto.analiseSituacaoAtual}" name="analiseSituacaoAtual" class="form-control mb-2" id="inputAnaliseSituacaoAtual" rows="3" disabled></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputDescricaoSituacaoDesejada" class="form-label text-azul-omni">Descrição Situação Desejada</label>
+                        <textarea th:text="${projeto.descricaoSituacaoDesejada}" name="descricaoSituacaoDesejada" class="form-control mb-2" id="inputDescricaoSituacaoDesejada" rows="3" disabled></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputDescricaoSolucao" class="form-label text-azul-omni">Descrição da Solução</label>
+                        <textarea th:text="${projeto.descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3" disabled></textarea>
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-center my-3">
+                        <a type="button" class="btn btn-laranja-escuro-omni btn-sm">Alterar</a>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <footer th:replace="~{common/footer :: footer}"></footer>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

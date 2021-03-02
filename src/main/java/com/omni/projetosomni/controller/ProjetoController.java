@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,10 +21,17 @@ public class ProjetoController {
     private ProjetoService projetoService;
 
     @GetMapping
-    public String home(Model model){
+    public String listarProjetosHome(Model model){
         List<Projeto> projetos = projetoService.listarProjetos();
         model.addAttribute("projetos", projetos);
         return "index";
+    }
+
+    @GetMapping("/projeto{id}")
+    public String detalharProjeto(@PathVariable("id") Integer id, Model model){
+        Projeto projeto = projetoService.detalharProjeto(id);
+        model.addAttribute("projeto", projeto);
+        return "detalhes";
     }
 
     @GetMapping("/cadastrar")
@@ -39,7 +45,14 @@ public class ProjetoController {
             return "cadastro";
         }
         projetoService.cadastrarProjeto(projetoDTO);
-        return "redirect:index";
+        return "redirect:/";
     }
+
+    @GetMapping("/{id}")
+    public String excluir(@PathVariable("id") Integer id){
+        projetoService.deletarProjeto(id);
+        return "redirect:/";
+    }
+
 
 }
