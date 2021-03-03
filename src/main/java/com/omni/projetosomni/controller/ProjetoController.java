@@ -65,7 +65,15 @@ public class ProjetoController {
         return "redirect:/";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/excluir{id}")
+    public String respostaExcluir(@PathVariable("id") Integer id, Model model){
+        Projeto projeto = projetoService.detalharProjeto(id);
+        model.addAttribute("projeto", projeto);
+        model.addAttribute("msg", "Você tem certeza que deseja excluir o projeto : " + projeto.getNomeProjeto());
+        return "respostaExcluir";
+    }
+
+    @GetMapping("/excluirProjeto/{id}")
     public String excluir(@PathVariable("id") Integer id){
         projetoService.deletarProjeto(id);
         return "redirect:/";

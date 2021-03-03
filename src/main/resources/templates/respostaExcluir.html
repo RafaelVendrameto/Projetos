@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Rafael Correa">
+        <meta name="keywords" content="contratos, clientes, omni">
+        <meta name="description" content="Pagina de consulta de clientes">
+        <title>Omni</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    </head>
+    <body class="fonte-montserrat">
+        <header th:replace="~{common/navbar :: navbar}"></header>
+
+        <article class="container">
+            <section class="my-3">
+                <h1 class="mb-4 text-center text-danger">Exclusão</h1>
+                <p th:text="${msg}" class="m-0 text-azul-omni text-center" style="font-size: 1.5em;"></p>
+                <p th:text="${projeto.nomeProjeto}" class="text-center text-danger fs-2"></p>
+                <div class="d-flex justify-content-center">
+                    <a th:href="@{/excluirProjeto/{id}(id=${projeto.id})}" class="btn btn-danger btn-sm mx-2">Excluir</a>
+                    <a th:href="@{/}" class="btn btn-laranja-claro-omni btn-sm mx-2">Voltar</a>
+                </div>
+            </section>
+        </article>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
