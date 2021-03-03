@@ -15,7 +15,7 @@
         <article class="container">
             <section class="my-3">
                 <h1 class="text-center text-azul-omni mb-2">Alteração do Projeto</h1>
-                <form class="row" th:object="${projetoDTO}" th:action="@{/alterarProjeto/{id}(id=${projeto.id})}" method="post">
+                <form class="row col-md-8 m-auto" th:object="${projetoDTO}" th:action="@{/alterarProjeto/{id}(id=${projeto.id})}" method="post">
                     <div class="col-md-12">
                         <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
                         <input th:value="${projeto.nomeProjeto}" name="nomeProjeto" type="text" th:errorClass="is-invalid" class="form-control mb-2" id="inputNomeProjeto">
@@ -50,7 +50,7 @@
                         <textarea th:text="${projeto.descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3"></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
-                        <button type="submit" class="btn btn-laranja-claro-omni">Cadastrar</button>
+                        <button type="submit" class="btn btn-laranja-claro-omni">Alterar</button>
                     </div>
                 </form>
             </section>

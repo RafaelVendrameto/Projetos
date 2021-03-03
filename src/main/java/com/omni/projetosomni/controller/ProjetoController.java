@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -32,6 +33,19 @@ public class ProjetoController {
         Projeto projeto = projetoService.detalharProjeto(id);
         model.addAttribute("projeto", projeto);
         return "detalhes";
+    }
+
+    @GetMapping("/projeto")
+    public String buscarProjeto(@RequestParam("nome") String nome, Model model){
+        Projeto projeto = projetoService.buscarPorNome(nome);
+        if(projeto != null){
+            model.addAttribute("projeto", projeto);
+            return "detalhes";
+        }
+        else {
+            model.addAttribute("msg", "O Projeto " + nome + " não foi encontrado na nossa base de dados, tente novamente.");
+            return "erroBusca";
+        }
     }
 
     @GetMapping("/cadastrar")

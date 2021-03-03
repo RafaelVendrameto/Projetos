@@ -14,8 +14,10 @@
 
         <article class="container">
             <section class="my-3">
-                <div class="row">
-                    <h1 class="text-center text-azul-omni mb-2">Detalhes do Projeto</h1>
+                <div class="row col-md-8 m-auto">
+                    <div class="col-md-12">
+                        <h1 class="text-center text-azul-omni mb-2">Detalhes do Projeto</h1>
+                    </div>
                     <div class="col-md-12">
                         <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
                         <input th:value="${projeto.nomeProjeto}" type="text" name="nomeProjeto" class="form-control mb-2" id="inputNomeProjeto" disabled>
@@ -45,7 +47,7 @@
                         <textarea th:text="${projeto.descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3" disabled></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
-                        <a th:href="@{/alterar/{id}(id=${projeto.id})}" class="btn btn-laranja-claro-omni btn-sm">Alterar</a>
+                        <a th:href="@{/alterar/{id}(id=${projeto.id})}" class="btn btn-laranja-claro-omni">Alterar</a>
                     </div>
                 </div>
             </section>

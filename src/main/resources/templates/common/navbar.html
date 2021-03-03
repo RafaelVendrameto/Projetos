@@ -15,9 +15,9 @@
             </a>
         </div>
 
-        <form class="col-md-4 d-flex">
-            <input class="form-control border-laranja-claro-omni mx-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-laranja-claro-omni" type="submit">Search</button>
+        <form th:action="@{/projeto}" method="get" class="col-md-4 d-flex">
+            <input class="form-control border-laranja-claro-omni mx-2" name="nome" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-laranja-claro-omni" type="submit">Buscar</button>
         </form>
     </nav>
 </header>

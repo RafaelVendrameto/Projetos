@@ -27,6 +27,14 @@ public class ProjetoService {
         return null;
     }
 
+    public Projeto buscarPorNome(String nome) {
+        Optional<Projeto> projeto = projetoRepository.findByNomeProjeto(nome);
+        if(projeto.isPresent()){
+            return projeto.get();
+        }
+        return null;
+    }
+
     public void cadastrarProjeto(ProjetoDTO projetoDTO) {
         Projeto projeto = projetoDTO.toProjeto();
         projetoRepository.save(projeto);

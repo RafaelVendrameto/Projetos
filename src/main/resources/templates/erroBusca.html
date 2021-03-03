@@ -14,16 +14,11 @@
 
         <article class="container">
             <section class="col-md-8 m-auto">
-                <h1 class="mt-4 text-center text-danger">Exclusão</h1>
+                <h1 class="mt-4 text-center text-danger">Erro</h1>
                 <p th:text="${msg}" class="m-0 text-azul-omni text-center" style="font-size: 1.5em;"></p>
-                <p th:text="${projeto.nomeProjeto}" class="text-center text-danger fs-2"></p>
-                <div class="d-flex justify-content-center">
-                    <a th:href="@{/excluirProjeto/{id}(id=${projeto.id})}" class="btn btn-danger mx-2">Excluir</a>
-                    <a th:href="@{/}" class="btn btn-laranja-claro-omni mx-2">Voltar</a>
-                </div>
             </section>
         </article>
 
-        <div th:replace="~{common/imports :: importJs}"></div>
+    <div th:replace="~{common/imports :: importJs}"></div>
     </body>
 </html>
