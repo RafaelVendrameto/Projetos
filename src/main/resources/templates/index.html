@@ -7,7 +7,7 @@
         <meta name="keywords" content="contratos, clientes, omni">
         <meta name="description" content="Pagina de consulta de clientes">
         <title>Omni</title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link th:replace="~{common/imports :: importCSS}">
     </head>
     <body class="fonte-montserrat">
         <header th:replace="~{common/navbar :: navbar}"></header>
@@ -17,22 +17,22 @@
                 <h1 class="text-center text-azul-omni mb-2">Projetos</h1>
                 <table class="table bg-cinza-claro-omni ">
                     <thead class="thead-cinza-omni">
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">Nome do projeto</th>
                         <th scope="col">Data de solicitação</th>
                         <th scope="col">Departamento</th>
-                        <th scope="col" class="text-center">Ações</th>
+                        <th scope="col">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="projeto : ${projetos}">
                         <td th:text="${projeto.nomeProjeto}">Nome do Projeto</td>
                         <td th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="text-center">Data de solicitação</td>
-                        <td th:text="${projeto.departamento.name()}">Departamento</td>
+                        <td th:text="${projeto.departamento.name()}" class="text-center">Departamento</td>
                         <td class="text-center">
-                            <a th:href="@{'/projeto' + ${projeto.id}}" class="btn btn-azul-omni btn-sm">Detalhes</a>
-                            <a th:href="@{'/alterar' + ${projeto.id}}" class="btn btn-laranja-escuro-omni btn-sm">Alterar</a>
-                            <a th:href="@{'/excluir' + ${projeto.id}}" class="btn btn-danger btn-sm">Excluir</a>
+                            <a th:href="@{/projeto/{id}(id=${projeto.id})}" class="btn btn-azul-omni btn-sm my-1">Detalhes</a>
+                            <a th:href="@{/alterar/{id}(id=${projeto.id})}" class="btn btn-laranja-escuro-omni btn-sm my-1">Alterar</a>
+                            <a th:href="@{/excluir/{id}(id=${projeto.id})}" class="btn btn-danger btn-sm my-1">Excluir</a>
                         </td>
                     </tr>
                     </tbody>
@@ -40,8 +40,6 @@
             </section>
         </article>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+    <div th:replace="~{common/imports :: importJs}"></div>
     </body>
 </html>

@@ -27,7 +27,7 @@ public class ProjetoController {
         return "index";
     }
 
-    @GetMapping("/projeto{id}")
+    @GetMapping("/projeto/{id}")
     public String detalharProjeto(@PathVariable("id") Integer id, Model model){
         Projeto projeto = projetoService.detalharProjeto(id);
         model.addAttribute("projeto", projeto);
@@ -48,7 +48,7 @@ public class ProjetoController {
         return "redirect:/";
     }
 
-    @GetMapping("/alterar{id}")
+    @GetMapping("/alterar/{id}")
     public String alterar(@PathVariable("id") Integer id, Model model, ProjetoDTO projetoDTO){
         Projeto projeto = projetoService.detalharProjeto(id);
         model.addAttribute("projeto", projeto);
@@ -65,11 +65,11 @@ public class ProjetoController {
         return "redirect:/";
     }
 
-    @GetMapping("/excluir{id}")
+    @GetMapping("/excluir/{id}")
     public String respostaExcluir(@PathVariable("id") Integer id, Model model){
         Projeto projeto = projetoService.detalharProjeto(id);
         model.addAttribute("projeto", projeto);
-        model.addAttribute("msg", "Você tem certeza que deseja excluir o projeto : " + projeto.getNomeProjeto());
+        model.addAttribute("msg", "Você tem certeza que deseja excluir o projeto :");
         return "respostaExcluir";
     }
 

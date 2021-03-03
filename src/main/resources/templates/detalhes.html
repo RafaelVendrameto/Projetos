@@ -7,7 +7,7 @@
         <meta name="keywords" content="contratos, clientes, omni">
         <meta name="description" content="Pagina de consulta de clientes">
         <title>Omni</title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link th:replace="~{common/imports :: importCSS}">
     </head>
     <body class="fonte-montserrat">
         <header th:replace="~{common/navbar :: navbar}"></header>
@@ -45,15 +45,13 @@
                         <textarea th:text="${projeto.descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3" disabled></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
-                        <a th:href="@{'/alterar' + ${projeto.id}}" class="btn btn-laranja-claro-omni btn-sm">Alterar</a>
+                        <a th:href="@{/alterar/{id}(id=${projeto.id})}" class="btn btn-laranja-claro-omni btn-sm">Alterar</a>
                     </div>
                 </div>
             </section>
         </article>
 
         <footer th:replace="~{common/footer :: footer}"></footer>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <div th:replace="~{common/imports :: importJs}"></div>
     </body>
 </html>
