@@ -9,12 +9,13 @@
         <title>Omni</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     </head>
-    <body class="bg-cinza-claro-omni fonte-montserrat">
+    <body class="fonte-montserrat">
         <header th:replace="~{common/navbar :: navbar}"></header>
 
         <article class="container">
             <section class="my-3">
-                <form class="row" th:object="${projetoDTO}" action="/novoProjeto" method="post">
+                <h1 class="text-center text-azul-omni mb-2">Cadastrar um Projeto</h1>
+                <form class="row" th:object="${projetoDTO}" th:action="@{/novoProjeto}" method="post">
                     <div class="col-md-12">
                         <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
                         <input type="text" th:field="*{nomeProjeto}" name="nomeProjeto" th:errorClass="is-invalid" class="form-control mb-2" id="inputNomeProjeto">
@@ -48,7 +49,7 @@
                         <textarea name="descricaoSolucao" th:field="*{descricaoSolucao}" class="form-control mb-2" id="inputDescricaoSolucao" rows="3"></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
-                        <button type="submit" class="btn btn-laranja-escuro-omni">Cadastrar</button>
+                        <button type="submit" class="btn btn-laranja-claro-omni">Cadastrar</button>
                     </div>
                 </form>
             </section>

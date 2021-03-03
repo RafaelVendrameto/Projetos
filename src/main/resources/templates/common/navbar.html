@@ -1,22 +1,23 @@
-<header th:fragment="navbar" class="container-fluid bg-cinza-omni">
-    <div class="row d-flex justify-content-center">
-        <a th:href="@{/}">
-            <img src="./img/logo-omni.png" width="120" class="m-3" alt="" loading="lazy">
-        </a>
-    </div>
+<header th:fragment="navbar" class="container-fluid bg-azul-omni">
     <nav class="row navbar navbar-light">
-        <ul class="nav font-weight-bold">
+        <ul class="col-md-4 d-flex justify-content-around font-weight-bold nav">
             <li class="nav-item">
-                <a class="nav-link text-azul-omni" th:href="@{/}">Home</a>
+                <a class="nav-link text-cinza-claro-omni" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-azul-omni" th:href="@{/cadastrar}">Cadastrar</a>
+                <a class="nav-link text-cinza-claro-omni" th:href="@{/cadastrar}">Cadastrar</a>
             </li>
         </ul>
 
-        <form class="d-flex">
-            <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-laranja-claro-omni" type="submit">Search</button>
+        <div class="col-md-4 d-flex justify-content-center">
+            <a th:href="@{/}">
+                <img src="./img/logo-omni-2.png" width="120" class="m-3" alt="" loading="lazy">
+            </a>
+        </div>
+
+        <form class="col-md-4 d-flex">
+            <input class="form-control border-laranja-claro-omni mx-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-laranja-claro-omni" type="submit">Search</button>
         </form>
     </nav>
 </header>

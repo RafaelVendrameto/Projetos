@@ -9,16 +9,16 @@
         <title>Omni</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     </head>
-    <body class="bg-cinza-claro-omni fonte-montserrat">
+    <body class="fonte-montserrat">
         <header th:replace="~{common/navbar :: navbar}"></header>
 
         <article class="container">
             <section class="my-3">
+                <h1 class="text-center text-azul-omni mb-2">Alteração do Projeto</h1>
                 <form class="row" th:object="${projetoDTO}" th:action="@{/alterarProjeto/{id}(id=${projeto.id})}" method="post">
                     <div class="col-md-12">
                         <label for="inputNomeProjeto" class="form-label text-azul-omni">Nome do Projeto</label>
-                        <p class="m-0">Texto anterior: "<small class="fs-1" th:text="${projeto.nomeProjeto}"></small>"</p>
-                        <input type="text" th:field="*{nomeProjeto}" name="nomeProjeto" th:errorClass="is-invalid" class="form-control mb-2" id="inputNomeProjeto">
+                        <input th:value="${projeto.nomeProjeto}" type="text" th:field="*{nomeProjeto}" name="nomeProjeto" th:errorClass="is-invalid" class="form-control mb-2" id="inputNomeProjeto">
                         <small class="invalid-feedback" th:errors="*{nomeProjeto}">mensagem de erro</small>
                     </div>
                     <div class="col-md-6">
@@ -40,7 +40,7 @@
                     <div class="col-md-12">
                         <label for="inputAnaliseSituacaoAtual" class="form-label text-azul-omni">Análise da Situação Atual</label>
                         <p class="m-0">Texto anterior: "<small class="fs-1" th:text="${projeto.analiseSituacaoAtual}"></small>"</p>
-                        <textarea th:field="*{analiseSituacaoAtual}" name="analiseSituacaoAtual" class="form-control mb-2" id="inputAnaliseSituacaoAtual" rows="3"></textarea>
+                        <textarea th:value="${projeto.analiseSituacaoAtual}" th:field="*{analiseSituacaoAtual}" name="analiseSituacaoAtual" class="form-control mb-2" id="inputAnaliseSituacaoAtual" rows="3"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label for="inputDescricaoSituacaoDesejada" class="form-label text-azul-omni">Descrição Situação Desejada</label>
@@ -53,7 +53,7 @@
                         <textarea th:field="*{descricaoSolucao}" name="descricaoSolucao" class="form-control mb-2" id="inputDescricaoSolucao" rows="3"></textarea>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center my-3">
-                        <button type="submit" class="btn btn-laranja-escuro-omni">Cadastrar</button>
+                        <button type="submit" class="btn btn-laranja-claro-omni">Cadastrar</button>
                     </div>
                 </form>
             </section>
