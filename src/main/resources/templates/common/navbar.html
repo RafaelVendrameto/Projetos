@@ -1,6 +1,10 @@
 <header th:fragment="navbar" class="container-fluid bg-azul-omni">
     <nav class="row navbar navbar-light">
-        <ul class="col-md-4 d-flex justify-content-around font-weight-bold nav">
+        <a th:href="@{/}">
+            <img src="../img/logo-omni-2.png" width="120" class="m-1" alt="logo omni" loading="lazy">
+        </a>
+
+        <ul class="col font-weight-bold ml-3 nav">
             <li class="nav-item">
                 <a class="nav-link text-cinza-claro-omni" th:href="@{/}">Home</a>
             </li>
@@ -9,15 +13,10 @@
             </li>
         </ul>
 
-        <div class="col-md-4 d-flex justify-content-center">
-            <a th:href="@{/}">
-                <img src="../img/logo-omni-2.png" width="120" class="m-3" alt="" loading="lazy">
-            </a>
-        </div>
 
-        <form th:action="@{/projeto}" method="get" class="col-md-4 d-flex">
-            <input class="form-control border-laranja-claro-omni mx-2" name="nome" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-laranja-claro-omni" type="submit">Buscar</button>
+        <form th:action="@{/projeto}" method="get" class="col-md-4 d-flex my-2">
+            <input class="form-control border-azul-omni mx-2" name="nome" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-laranja-escuro-omni" type="submit">Buscar</button>
         </form>
     </nav>
 </header>
