@@ -15,20 +15,20 @@
         <article class="container">
             <section class="my-3">
                 <h1 class="text-center text-azul-omni mb-2">Projetos</h1>
-                <table class="table bg-cinza-claro-omni ">
+                <table class="table bg-cinza-claro-omni table-responsive-sm">
                     <thead class="thead-cinza-omni">
                     <tr class="text-center">
                         <th scope="col">Nome do projeto</th>
-                        <th scope="col">Data de solicitação</th>
-                        <th scope="col">Departamento</th>
+                        <th scope="col" class="d-md-table-cell d-none">Data de solicitação</th>
+                        <th scope="col" class="d-md-table-cell d-none">Departamento</th>
                         <th scope="col">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="projeto : ${projetos}">
                         <td th:text="${projeto.nomeProjeto}">Nome do Projeto</td>
-                        <td th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="text-center">Data de solicitação</td>
-                        <td th:text="${projeto.departamento.name()}" class="text-center">Departamento</td>
+                        <td th:text="${#temporals.format(projeto.dataSolicitacao, 'dd/MM/yyyy')}" class="text-center d-md-table-cell d-none">Data de solicitação</td>
+                        <td th:text="${projeto.departamento.name()}" class="text-center d-md-table-cell d-none">Departamento</td>
                         <td class="text-center">
                             <a th:href="@{/projeto/{id}(id=${projeto.id})}" class="btn btn-azul-omni btn-sm my-1">Detalhes</a>
                             <a th:href="@{/alterar/{id}(id=${projeto.id})}" class="btn btn-laranja-escuro-omni btn-sm my-1">Alterar</a>

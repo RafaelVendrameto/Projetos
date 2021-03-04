@@ -29,10 +29,17 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRegulatorio" class="form-label text-azul-omni">Regulatório</label>
-                        <select id="inputRegulatorio" name="regulatorio" class="form-select col mb-2" disabled>
-                            <option><small th:text="${projeto.regulatorio} ? 'SIM' : 'NÃO'" ></small></option>
-                        </select>
+                        <div class="col-12 p-0">
+                            <label class="form-label text-azul-omni">Regulatório</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" th:checked="${projeto.regulatorio}" type="radio" name="regulatorio" id="inputRegulatorioSim" disabled>
+                            <label class="form-check-label" for="inputRegulatorioSim">SIM</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" th:checked="${!projeto.regulatorio}" type="radio" name="regulatorio" id="inputRegulatorioNao" disabled>
+                            <label class="form-check-label" for="inputRegulatorioNao">Não</label>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label for="inputAnaliseSituacaoAtual" class="form-label text-azul-omni">Análise da Situação Atual</label>

@@ -24,18 +24,23 @@
                     <div class="col-md-6">
                         <label for="inputDepartamento" class="form-label text-azul-omni">Departamento</label>
                         <select id="inputDepartamento" name="departamento" class="form-select col mb-2">
-                            <option th:value="${projeto.departamento.name()}"><small th:text="${projeto.departamento.name()}"></small></option>
-                            <option th:classappend="${projeto.departamento.name()} == 'DEPARTAMENTO_01' ? 'd-none'" value="DEPARTAMENTO_01">DEPARTAMENTO_01</option>
-                            <option th:classappend="${projeto.departamento.name()} == 'DEPARTAMENTO_02' ? 'd-none'" value="DEPARTAMENTO_02">DEPARTAMENTO_02</option>
-                            <option th:classappend="${projeto.departamento.name()} == 'DEPARTAMENTO_03' ? 'd-none'" value="DEPARTAMENTO_03">DEPARTAMENTO_03</option>
+                            <option th:selected="${projeto.departamento.name() == 'DEPARTAMENTO_01'}" value="DEPARTAMENTO_01">DEPARTAMENTO_01</option>
+                            <option th:selected="${projeto.departamento.name() == 'DEPARTAMENTO_02'}" value="DEPARTAMENTO_02">DEPARTAMENTO_02</option>
+                            <option th:selected="${projeto.departamento.name() == 'DEPARTAMENTO_03'}" value="DEPARTAMENTO_03">DEPARTAMENTO_03</option>
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputRegulatorio" class="form-label text-azul-omni">Regulatório</label>
-                        <select id="inputRegulatorio" name="regulatorio" class="form-select col mb-2">
-                            <option th:value="${projeto.regulatorio}"><small th:text="${projeto.regulatorio} ? 'SIM' : 'NÃO'" ></small></option>
-                            <option th:value="${!projeto.regulatorio}"><small th:text="${!projeto.regulatorio} ? 'SIM' : 'NÃO'" ></small></option>
-                        </select>
+                        <div class="col-12 p-0">
+                            <label class="form-label text-azul-omni">Regulatório</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" th:checked="${projeto.regulatorio}" type="radio" name="regulatorio" id="inputRegulatorioSim" value="true">
+                            <label class="form-check-label" for="inputRegulatorioSim">SIM</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" th:checked="${!projeto.regulatorio}" type="radio" name="regulatorio" id="inputRegulatorioNao" value="false">
+                            <label class="form-check-label" for="inputRegulatorioNao">Não</label>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label for="inputAnaliseSituacaoAtual" class="form-label text-azul-omni">Análise da Situação Atual</label>
