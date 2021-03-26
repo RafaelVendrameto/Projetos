@@ -38,10 +38,14 @@
                     </tbody>
                 </table>
                 <ul th:if="${projetos.totalPages > 0}" class="pagination justify-content-center">
-                    <li class="page-item" th:each="pageNumber : ${pageNumbers}">
-                        <a th:href="@{/(size=${projetos.size}, page=${pageNumber - 1})}"
-                       th:text=${pageNumber}
-                       th:classappend="${pageNumber==projetos.number + 1} ? active : ''" class="page-link"></a>
+                    <li th:classappend="${projetos.number == 0} ? disabled : ''" class="page-item">
+                        <a th:href="@{/(size=${projetos.size}, page=${projetos.number - 1})}" class="page-link" href="#">Anterior</a>
+                    </li>
+                    <li class="page-item" th:each="pageNumber : ${pageNumbers}" th:classappend="${pageNumber==projetos.number + 1} ? active : ''">
+                        <a th:href="@{/(size=${projetos.size}, page=${pageNumber - 1})}" th:text=${pageNumber} class="page-link"></a>
+                    </li>
+                    <li th:classappend="${(projetos.number + 1) == projetos.totalPages} ? disabled : ''" class="page-item">
+                        <a th:href="@{/(size=${projetos.size}, page=${projetos.number + 1})}" class="page-link" href="#">Próxima</a>
                     </li>
                 </ul>
             </section>
