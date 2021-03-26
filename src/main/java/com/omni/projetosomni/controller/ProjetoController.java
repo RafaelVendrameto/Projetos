@@ -4,6 +4,10 @@ import com.omni.projetosomni.dto.ProjetoDTO;
 import com.omni.projetosomni.model.Projeto;
 import com.omni.projetosomni.service.ProjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 public class ProjetoController {
@@ -22,9 +29,21 @@ public class ProjetoController {
     private ProjetoService projetoService;
 
     @GetMapping
-    public String listarProjetosHome(Model model){
-        List<Projeto> projetos = projetoService.listarProjetos();
+    public String listarProjetosHome(Model model,
+                                     @PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 5) Pageable paginacao,
+                                     @RequestParam("page") Optional<Integer> page,
+                                     @RequestParam("size") Optional<Integer> size){
+        Page<Projeto> projetos = projetoService.listarProjetos(paginacao);
         model.addAttribute("projetos", projetos);
+
+        int totalPages = projetos.getTotalPages();
+        if (totalPages > 0) {
+            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
+                    .boxed()
+                    .collect(Collectors.toList());
+            model.addAttribute("pageNumbers", pageNumbers);
+        }
+
         return "index";
     }
 

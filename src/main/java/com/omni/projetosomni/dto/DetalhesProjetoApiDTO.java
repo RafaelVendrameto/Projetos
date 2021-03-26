@@ -2,10 +2,9 @@ package com.omni.projetosomni.dto;
 
 import com.omni.projetosomni.model.Departamento;
 import com.omni.projetosomni.model.Projeto;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class DetalhesProjetoApiDTO {
     private Integer id;
@@ -92,7 +91,7 @@ public class DetalhesProjetoApiDTO {
         this.descricaoSolucao = descricaoSolucao;
     }
 
-    public static List<DetalhesProjetoApiDTO> converter(List<Projeto> listarProjetos) {
-        return listarProjetos.stream().map(DetalhesProjetoApiDTO::new).collect(Collectors.toList());
+    public static Page<DetalhesProjetoApiDTO> converter(Page<Projeto> listarProjetos) {
+        return listarProjetos.map(DetalhesProjetoApiDTO::new);
     }
 }

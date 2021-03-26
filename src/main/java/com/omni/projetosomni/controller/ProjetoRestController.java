@@ -4,13 +4,15 @@ import com.omni.projetosomni.dto.DetalhesProjetoApiDTO;
 import com.omni.projetosomni.model.Projeto;
 import com.omni.projetosomni.service.ProjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/projetos")
@@ -20,8 +22,8 @@ public class ProjetoRestController {
     private ProjetoService projetoService;
 
     @GetMapping
-    public List<DetalhesProjetoApiDTO> listarProjetos(){
-        return DetalhesProjetoApiDTO.converter(projetoService.listarProjetos());
+    public Page<DetalhesProjetoApiDTO> listarProjetos(@PageableDefault(sort = "id", direction = Sort.Direction.ASC, page = 0, size = 5) Pageable paginacao){
+        return DetalhesProjetoApiDTO.converter(projetoService.listarProjetos(paginacao));
     }
 
     @GetMapping("/{id}")

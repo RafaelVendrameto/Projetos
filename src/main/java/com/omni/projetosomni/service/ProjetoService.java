@@ -4,6 +4,10 @@ import com.omni.projetosomni.dto.ProjetoDTO;
 import com.omni.projetosomni.model.Projeto;
 import com.omni.projetosomni.repository.ProjetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +19,8 @@ public class ProjetoService {
     @Autowired
     private ProjetoRepository projetoRepository;
 
-    public List<Projeto> listarProjetos() {
-        return projetoRepository.findAll();
+    public Page<Projeto> listarProjetos(Pageable paginacao) {
+        return projetoRepository.findAll(paginacao);
     }
 
     public Projeto detalharProjeto(Integer id) {
